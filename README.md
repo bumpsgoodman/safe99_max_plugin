@@ -25,5 +25,5 @@ typedef struct safe3d
 
 3ds max에서 safe3d Exporter로 저장하면 아래 사진처럼 저장됩니다.
 
-<img src="sample/max_exporter/export.jpg"  width="60%"/>
-<img src="sample/max_exporter/result.jpg"  width="20%"/>
+<img src="sample/max_exporter/export.jpg"  width="50%"/>
+<img src="sample/max_exporter/result.jpg"  width="10%"/>
