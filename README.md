@@ -39,3 +39,23 @@ typedef struct safe3d
 
 ### 참고사항
 .dle 확장자는 3ds max에서 exporter 플러그인 확장자입니다.
+
+## 빌드 방법
+### 환경
+OS: Windows 10 이상
+
+IDE: Visual Studio 2019 이상
+
+SDK: 3ds max sdk 2024
+
+### 빌드
+1. project 폴더에 있는 safe99_max_plugin.sln 파일로 visual studio 열기
+
+1. safe99_max_exporter 빌드
+
+1. 3ds max에 플러그인 추가
+
+### 빌드 오류 시
+1. 3ds max sdk 환경변수에 ADSK_3DSMAX_SDK_2024의 경로가 제대로 설정됐는지 확인
+
+    <img src="sample/build/env_variables.jpg"  width="70%"/>
