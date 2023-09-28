@@ -31,7 +31,7 @@ typedef struct vector3_int
 
 typedef struct safe3d
 {
-    char magic[8]; // "safe3d", 
+    char magic[8]; // "safe3d"
 
     int num_vertices;
     int num_indices;
