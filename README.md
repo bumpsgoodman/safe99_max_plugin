@@ -25,5 +25,17 @@ typedef struct safe3d
 
 3ds max에서 safe3d Exporter로 저장하면 아래 사진처럼 저장됩니다.
 
-<img src="sample/max_exporter/export.jpg"  width="50%"/>
-<img src="sample/max_exporter/result.jpg"  width="10%"/>
+<img src="sample/max_exporter/export.jpg"  width="60%"/>
+<img src="sample/max_exporter/result.jpg"/>
+
+## 3ds max에 플러그인 추가하기
+1. output/plugin에 있는 .dle 파일 복사
+
+    <img src="sample/add_plugin/copy_dle.jpg"  width="100%"/>
+
+1. 3ds max 경로/stdplugs에 복사한 .dle 파일 붙여넣기
+
+    <img src="sample/add_plugin/paste_dle.jpg"  width="100%"/>
+
+### 참고사항
+.dle 확장자는 3ds max에서 exporter 플러그인 확장자입니다.
