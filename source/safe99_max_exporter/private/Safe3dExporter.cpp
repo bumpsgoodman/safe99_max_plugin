@@ -268,6 +268,9 @@ void Safe3dExporter::exportNodeRecursion(INode* node)
 
 void Safe3dExporter::exportGeomObject(INode* node)
 {
+    Matrix3 tm = node->GetObjTMAfterWSM(0);
+    const DWORD wire_color = node->GetWireColor();
+
     ObjectState os = node->EvalWorldState(0);
     if (os.obj == nullptr)
     {
@@ -297,20 +300,23 @@ void Safe3dExporter::exportGeomObject(INode* node)
 
     safe3d.num_vertices = mesh->getNumVerts();
     safe3d.num_indices = mesh->getNumFaces();
+    safe3d.wireframe_color.x = GetRValue(wire_color) / 255.0f;
+    safe3d.wireframe_color.y = GetGValue(wire_color) / 255.0f;
+    safe3d.wireframe_color.z = GetBValue(wire_color) / 255.0f;
+    safe3d.wireframe_color.w = 1.0f;
 
     fwrite(&safe3d, sizeof(safe3d_t), 1, mStream);
 
-    for (int i = 0; i < safe3d.num_vertices; ++i)
+    for (DWORD i = 0; i < safe3d.num_vertices; ++i)
     {
-        Point3 p = mesh->verts[i];
+        Point3 p = tm * mesh->verts[i];
         vector3_t v = { p.x, p.y, p.z };
         fwrite(&v, sizeof(vector3_t), 1, mStream);
     }
 
-    for (int i = 0; i < safe3d.num_indices; ++i)
+    for (DWORD i = 0; i < safe3d.num_indices; ++i)
     {
-        Point3 p = mesh->verts[i];
-        vector3_int v = { (int)mesh->faces[i].v[2], (int)mesh->faces[i].v[1], (int)mesh->faces[i].v[0] };
+        vector3_int v = { (int)mesh->faces[i].v[0], (int)mesh->faces[i].v[1], (int)mesh->faces[i].v[2] };
         fwrite(&v, sizeof(vector3_int), 1, mStream);
     }
 

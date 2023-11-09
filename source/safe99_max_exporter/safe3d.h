@@ -29,10 +29,19 @@ typedef struct vector3_int
     int z;
 } vector3_int_t;
 
+typedef struct vector4
+{
+    float x;
+    float y;
+    float z;
+    float w;
+} vector4_t;
+
 typedef struct safe3d
 {
     char magic[8]; // "safe3d"
 
-    int num_vertices;
-    int num_indices;
+    DWORD num_vertices;
+    DWORD num_indices;
+    vector4_t wireframe_color;
 } safe3d_t;
